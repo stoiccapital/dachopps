@@ -1,21 +1,4 @@
-/* Mobile menu toggle functionality - defined early for onclick handlers */
-function toggleMobileMenu() {
-  console.log('toggleMobileMenu called');
-  const navLinks = document.querySelector('.nav-links');
-  const toggle = document.querySelector('.mobile-menu-toggle');
-  
-  console.log('navLinks:', navLinks);
-  console.log('toggle:', toggle);
-  
-  if (navLinks && toggle) {
-    navLinks.classList.toggle('mobile-open');
-    toggle.textContent = navLinks.classList.contains('mobile-open') ? '×' : '☰';
-    console.log('Menu toggled, class:', navLinks.classList.contains('mobile-open'));
-  }
-}
-
-// Make function globally accessible immediately
-window.toggleMobileMenu = toggleMobileMenu;
+/* Old mobile menu functionality removed - now using /components/navbar.js */
 
 /* Simple modal handling */
 function openModal(id){ document.getElementById(id).showModal(); }
@@ -95,15 +78,4 @@ window.addEventListener('load', ()=>{
   });
 });
 
-// Setup additional mobile menu event listeners after everything loads (backup)
-window.addEventListener('load', () => {
-  console.log('Setting up mobile menu toggle...');
-  document.querySelectorAll('.mobile-menu-toggle').forEach((toggle, index) => {
-    console.log('Found toggle button:', index, toggle);
-    toggle.addEventListener('click', (e) => {
-      console.log('Toggle clicked!');
-      e.preventDefault();
-      toggleMobileMenu();
-    });
-  });
-});
+// Old mobile menu setup removed - now using /components/navbar.js

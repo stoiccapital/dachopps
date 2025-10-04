@@ -10,22 +10,13 @@
   <meta property="og:type" content="website" />
   <link rel="icon" href="/assets/favicon.svg" />
   <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/components/navbar.js"></script>
   <script defer src="/main.js"></script>
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="/">DACHOPPS</a>
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-    <nav class="nav-links">
-      <a href="/services.html">Services</a>
-      <a href="/case-studies.html">Case Studies</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a class="btn btn-primary" href="#" data-open-modal="scheduler">Book a Call</a>
-    </nav>
-  </header>
+  <div id="navbar"></div>
 
-  <main>
+  <main id="main">
     <!-- Hero -->
     <section class="hero">
       <div class="badge">DACH only • Pre-seed to Series A</div>

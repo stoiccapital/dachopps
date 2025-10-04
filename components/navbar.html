@@ -1,0 +1,32 @@
+<!-- Accessible, mobile-first navbar. No page-specific content here. -->
+<nav class="nv" role="navigation" aria-label="Primary">
+  <a class="nv__skip" href="#main">Skip to content</a>
+  <div class="nv__bar">
+    <a class="nv__brand" href="/">DACHOPPS</a>
+
+    <button class="nv__toggle" aria-controls="nv-drawer" aria-expanded="false" aria-label="Open menu">
+      <span class="nv__toggle-line" aria-hidden="true"></span>
+      <span class="nv__toggle-line" aria-hidden="true"></span>
+      <span class="nv__toggle-line" aria-hidden="true"></span>
+    </button>
+
+    <ul class="nv__links nv__links--desktop">
+      <li><a href="/services.html" data-nav="Services">Services</a></li>
+      <li><a href="/case-studies.html" data-nav="Case Studies">Case Studies</a></li>
+      <li><a href="/about.html" data-nav="About">About</a></li>
+      <li><a href="/contact.html" data-nav="Contact">Contact</a></li>
+      <li><a class="nv__cta" href="#" data-open-modal="scheduler">Book a Call</a></li>
+    </ul>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="nv__drawer" id="nv-drawer" hidden>
+    <ul class="nv__links nv__links--mobile" role="menu">
+      <li role="none"><a role="menuitem" href="/services.html">Services</a></li>
+      <li role="none"><a role="menuitem" href="/case-studies.html">Case Studies</a></li>
+      <li role="none"><a role="menuitem" href="/about.html">About</a></li>
+      <li role="none"><a role="menuitem" href="/contact.html">Contact</a></li>
+      <li role="none"><a role="menuitem" class="nv__cta" href="#" data-open-modal="scheduler">Book a Call</a></li>
+    </ul>
+  </div>
+</nav>
