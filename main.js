@@ -1,3 +1,22 @@
+/* Mobile menu toggle functionality - defined early for onclick handlers */
+function toggleMobileMenu() {
+  console.log('toggleMobileMenu called');
+  const navLinks = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  
+  console.log('navLinks:', navLinks);
+  console.log('toggle:', toggle);
+  
+  if (navLinks && toggle) {
+    navLinks.classList.toggle('mobile-open');
+    toggle.textContent = navLinks.classList.contains('mobile-open') ? '×' : '☰';
+    console.log('Menu toggled, class:', navLinks.classList.contains('mobile-open'));
+  }
+}
+
+// Make function globally accessible immediately
+window.toggleMobileMenu = toggleMobileMenu;
+
 /* Simple modal handling */
 function openModal(id){ document.getElementById(id).showModal(); }
 function closeModal(el){ el.closest('dialog').close(); }
@@ -8,27 +27,10 @@ document.querySelectorAll('[data-close]').forEach(el=>{
   el.addEventListener('click', ()=> closeModal(el));
 });
 
-/* Mobile menu toggle */
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const toggle = document.querySelector('.mobile-menu-toggle');
-  
-  if (navLinks && toggle) {
-    navLinks.classList.toggle('mobile-open');
-    toggle.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', toggleMobileMenu);
-  }
-});
 
 /* Lead form: store to local CSV for download */
 function serializeCSVRow(obj){
-  const esc = (v)=> `"${String(v??'').replace(/"/g,'""')}"`;
+  const esc = (v)=> `"${String(v || '').replace(/"/g,'""')}"`;
   return Object.keys(obj).map(k=>esc(obj[k])).join(',') + '\n';
 }
 function appendToLocalCSV(filename, headers, rowObj){
@@ -59,7 +61,7 @@ if(leadForm){
     appendToLocalCSV('leads.csv', ['name','email','company','timestamp'], {
       ...data, timestamp: new Date().toISOString()
     });
-    alert('Thanks! We'll email you a scheduling link.');
+    alert('Thanks! We\'ll email you a scheduling link.');
     leadForm.reset();
   });
 }
@@ -90,5 +92,18 @@ document.addEventListener('keydown', (e)=>{
 window.addEventListener('load', ()=>{
   document.querySelectorAll('.modal .modal-close').forEach(btn=>{
     btn.setAttribute('data-close','');
+  });
+});
+
+// Setup additional mobile menu event listeners after everything loads (backup)
+window.addEventListener('load', () => {
+  console.log('Setting up mobile menu toggle...');
+  document.querySelectorAll('.mobile-menu-toggle').forEach((toggle, index) => {
+    console.log('Found toggle button:', index, toggle);
+    toggle.addEventListener('click', (e) => {
+      console.log('Toggle clicked!');
+      e.preventDefault();
+      toggleMobileMenu();
+    });
   });
 });
