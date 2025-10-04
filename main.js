@@ -8,6 +8,24 @@ document.querySelectorAll('[data-close]').forEach(el=>{
   el.addEventListener('click', ()=> closeModal(el));
 });
 
+/* Mobile menu toggle */
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  
+  if (navLinks && toggle) {
+    navLinks.classList.toggle('mobile-open');
+    toggle.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', toggleMobileMenu);
+  }
+});
+
 /* Lead form: store to local CSV for download */
 function serializeCSVRow(obj){
   const esc = (v)=> `"${String(v??'').replace(/"/g,'""')}"`;
