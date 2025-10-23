@@ -32,6 +32,12 @@ ul{margin:0;padding-left:18px}
 .cta-row .btn{flex:1;min-width:140px}
 .proof-bar{display:flex;gap:12px;flex-wrap:wrap;color:#666;font-size:.9rem;margin-top:24px}
 
+.clients{max-width:var(--max);margin:48px auto;padding:0 20px;text-align:center}
+.clients-content{background:#fafafa;border:1px solid #eee;border-radius:var(--radius);padding:32px 24px}
+.clients-label{color:#666;font-size:.9rem;margin:0 0 20px;text-transform:uppercase;letter-spacing:.5px}
+.clients-logos{display:flex;gap:32px;justify-content:center;align-items:center;flex-wrap:wrap}
+.client-logo{color:#111;font-weight:600;font-size:1.1rem;opacity:.8}
+
 .grid-3{max-width:var(--max);margin:24px auto;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .tile{background:#fafafa;border:1px solid #eee;border-radius:var(--radius);padding:16px}
 
@@ -84,6 +90,11 @@ ul{margin:0;padding-left:18px}
   .sub{font-size:16px}
   .cta-row{flex-direction:column;gap:12px}
   .cta-row .btn{width:100%}
+  
+  .clients{margin:32px auto;padding:0 16px}
+  .clients-content{padding:24px 16px}
+  .clients-logos{gap:20px}
+  .client-logo{font-size:1rem}
   
   .grid-3,.pricing-grid,.carousel,.cards,.cases-grid{grid-template-columns:1fr;gap:12px}
   .tile,.price-card,.carousel figure,.cards article,.case{padding:16px}
